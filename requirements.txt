@@ -1,0 +1,5 @@
+# Téléchargement et extraction audio
+yt-dlp>=2024.1.0
+
+# Lecture/écriture des tags ID3 (pochette, métadonnées)
+mutagen>=1.45.0
