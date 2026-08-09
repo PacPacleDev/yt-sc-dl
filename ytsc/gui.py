@@ -120,8 +120,9 @@ class App(tk.Tk):
         tk.Label(head, text="YT", font=FONT_TITLE, bg=BG, fg=ERR).pack(side="left")
         tk.Label(head, text="·SC", font=FONT_TITLE, bg=BG, fg=NEON_V).pack(side="left")
         tk.Label(head, text="DL", font=FONT_TITLE, bg=BG, fg=NEON_G).pack(side="left")
-        tk.Label(head, text="playlists → audio → Rekordbox", font=FONT_SMALL,
-                 bg=BG, fg=MUTED).pack(side="left", padx=14, pady=10)
+        tk.Label(head, text="playlists YouTube et SoundCloud → audio",
+                 font=FONT_SMALL, bg=BG, fg=MUTED).pack(side="left",
+                                                        padx=14, pady=10)
 
         body = tk.Frame(self, bg=BG)
         body.pack(fill="both", expand=True, padx=28)

@@ -1,8 +1,7 @@
 # Yt-Sc DL
 
-Télécharge des playlists YouTube et SoundCloud en fichiers audio, prêtes à
-glisser dans Rekordbox. Relance-le plus tard : seuls les nouveaux morceaux
-descendent.
+Télécharge des playlists YouTube et SoundCloud en fichiers audio. Relance-le
+plus tard : seuls les nouveaux morceaux descendent.
 
 *[English version](README.md)*
 
@@ -14,16 +13,16 @@ descendent.
 
 ## Pourquoi
 
-Se constituer une bibliothèque DJ à partir de sets en ligne, c'est
-retélécharger les mêmes playlists encore et encore. Yt-Sc DL retient ce qu'il
-a déjà récupéré : la deuxième passe ne prend que les nouveautés. Pas de
-doublons, pas de réencodage, rien à surveiller.
+La plupart des outils de téléchargement repartent de zéro à chaque fois :
+pointe-les sur une playlist que tu as déjà et ils la reprennent entièrement.
+Yt-Sc DL retient ce qu'il a téléchargé, et la deuxième passe ne prend que les
+nouveautés.
 
 - **Synchronisation incrémentale** — un fichier d'archive par playlist, rien
   n'est téléchargé deux fois
-- **Sortie pensée pour le mix** — MP3 320, ou AIFF / WAV / FLAC sans perte
-- **Pochette et métadonnées intégrées**, pour que les morceaux s'affichent
-  correctement dans Rekordbox
+- **Les formats qui te conviennent** — MP3 à n'importe quel débit, ou AIFF /
+  WAV / FLAC sans perte
+- **Pochette et métadonnées intégrées** aux fichiers
 - **Un dossier par playlist**, nommé d'après elle
 - **Interface ou ligne de commande** — le même moteur derrière les deux
 
@@ -34,7 +33,7 @@ doublons, pas de réencodage, rien à surveiller.
 Il te faut **Python 3.8+** et **ffmpeg**.
 
 ```bash
-git clone https://github.com/<ton-pseudo>/yt-sc-dl.git
+git clone https://github.com/PacPacleDev/yt-sc-dl.git
 cd yt-sc-dl
 pip3 install -r requirements.txt
 ```
@@ -66,9 +65,9 @@ plupart des systèmes ; si la fenêtre refuse de s'ouvrir :
 python3 ytsc.py
 ```
 
-Sur macOS, tu peux aussi double-cliquer sur **`Yt-Sc DL.command`**. La
-première fois, macOS le bloquera : clic droit sur le fichier → **Ouvrir** →
-**Ouvrir**. Une seule fois.
+Sur macOS, tu peux aussi double-cliquer sur **`Yt-Sc DL.command`**. La première
+fois, macOS le bloquera : clic droit sur le fichier → **Ouvrir** → **Ouvrir**.
+Une seule fois.
 
 Colle une URL de playlist, choisis un dossier, clique sur **LANCER**. Les deux
 playlists mémorisées en haut servent à celles que tu synchronises
@@ -81,7 +80,7 @@ régulièrement : chacune garde son URL et son dossier de destination.
 python3 ytsc.py "https://youtube.com/playlist?list=PLxxxx"
 
 # Choisir la destination et le format
-python3 ytsc.py "<url>" -o ~/Music/DJ -f aiff
+python3 ytsc.py "<url>" -o ~/Music -f aiff
 
 # Synchroniser les deux playlists mémorisées
 python3 ytsc.py --saved
@@ -123,8 +122,8 @@ déjà téléchargés :
 
 À la relance, tout ce qui y figure est ignoré. **Ne supprime pas ces
 fichiers** : en perdre un, c'est retélécharger la playlist entière. Ils sont
-posés à côté du dossier, pas dedans, pour survivre si tu réorganises tes
-morceaux.
+posés à côté du dossier plutôt que dedans, pour survivre si tu réorganises tes
+fichiers.
 
 ### Débit et formats sans perte
 
@@ -164,15 +163,16 @@ playlists et tes dossiers restent chez toi.
 
 ## Bon à savoir
 
-**Rekordbox et le renommage.** Rekordbox mémorise le chemin exact de chaque
-fichier. Renommer ou déplacer un morceau après l'avoir importé casse le lien —
-tu perds cue points et beatgrids. Range tes fichiers *avant* de les importer.
-
 **Les morceaux privés ou bloqués géographiquement** sont ignorés avec un
 avertissement, sans interrompre le reste de la playlist.
 
+**Renommer les fichiers après coup.** Les lecteurs et bibliothèques qui
+indexent tes fichiers mémorisent leur chemin exact. Renommer ou déplacer un
+morceau déjà indexé peut casser ce lien — mieux vaut arrêter une organisation
+de dossiers avant d'importer où que ce soit.
+
 **Ne télécharge que ce à quoi tu as droit.** Respecte les conditions
-d'utilisation des plateformes et les droits des artistes.
+d'utilisation des plateformes et les droits des créateurs.
 
 ---
 

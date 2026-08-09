@@ -1,4 +1,4 @@
-"""Yt-Sc DL — télécharge des playlists YouTube et SoundCloud pour Rekordbox."""
+"""Yt-Sc DL — télécharge des playlists YouTube et SoundCloud en fichiers audio."""
 
 __version__ = "1.0.0"
 

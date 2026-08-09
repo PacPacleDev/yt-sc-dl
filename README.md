@@ -1,7 +1,7 @@
 # Yt-Sc DL
 
-Download YouTube and SoundCloud playlists as audio files, ready to drop into
-Rekordbox. Run it again later and only the new tracks come down.
+Download YouTube and SoundCloud playlists as audio files. Run it again later
+and only the new tracks come down.
 
 *[Version française](README.fr.md)*
 
@@ -13,15 +13,14 @@ Rekordbox. Run it again later and only the new tracks come down.
 
 ## Why
 
-Building a DJ library from online sets means downloading the same playlists
-over and over. Yt-Sc DL keeps a record of what it has already fetched, so a
-second run pulls only what's new — no duplicates, no re-encoding, no
-babysitting.
+Most download tools treat every run as a fresh start: point them at a playlist
+you already have and they fetch all of it again. Yt-Sc DL keeps a record of
+what it has downloaded, so the second run only picks up what's new.
 
 - **Incremental sync** — an archive file per playlist means nothing is
   downloaded twice
-- **DJ-friendly output** — MP3 320, or lossless AIFF / WAV / FLAC
-- **Cover art and metadata** embedded, so tracks look right in Rekordbox
+- **Formats that suit you** — MP3 at any bitrate, or lossless AIFF / WAV / FLAC
+- **Cover art and metadata** embedded in the files
 - **One folder per playlist**, named after it
 - **GUI or command line** — same engine behind both
 
@@ -32,7 +31,7 @@ babysitting.
 You need **Python 3.8+** and **ffmpeg**.
 
 ```bash
-git clone https://github.com/<your-username>/yt-sc-dl.git
+git clone https://github.com/PacPacleDev/yt-sc-dl.git
 cd yt-sc-dl
 pip3 install -r requirements.txt
 ```
@@ -68,9 +67,9 @@ On macOS you can also double-click **`Yt-Sc DL.command`**. The first time,
 macOS will block it — right-click the file, choose **Open**, then **Open**
 again. Only needed once.
 
-Paste a playlist URL, pick a destination folder, hit **LANCER**. The two
-saved playlists at the top are for the ones you sync regularly: each keeps
-its own URL and its own destination.
+Paste a playlist URL, pick a destination folder, hit **LANCER**. The two saved
+playlists at the top are for the ones you sync regularly: each keeps its own
+URL and its own destination folder.
 
 ### Command line
 
@@ -79,7 +78,7 @@ its own URL and its own destination.
 python3 ytsc.py "https://youtube.com/playlist?list=PLxxxx"
 
 # Choose destination and format
-python3 ytsc.py "<url>" -o ~/Music/DJ -f aiff
+python3 ytsc.py "<url>" -o ~/Music -f aiff
 
 # Sync both saved playlists
 python3 ytsc.py --saved
@@ -119,15 +118,15 @@ already downloaded:
 ```
 
 On the next run, anything listed there is skipped. **Don't delete these
-files** — losing one means re-downloading the whole playlist. They sit
-next to the playlist folder, not inside it, so they survive if you move
-tracks around.
+files** — losing one means re-downloading the whole playlist. They sit next to
+the playlist folder rather than inside it, so they survive if you move files
+around.
 
 ### Bitrate and lossless formats
 
-Bitrate is ignored for AIFF, WAV and FLAC — applying one to a lossless
-format is meaningless, so the best available quality is requested instead.
-The GUI greys the field out to make this visible.
+Bitrate is ignored for AIFF, WAV and FLAC — applying one to a lossless format
+is meaningless, so the best available quality is requested instead. The GUI
+greys the field out to make this visible.
 
 ### Tracking parameters in URLs
 
@@ -161,15 +160,16 @@ folders stay yours.
 
 ## Notes
 
-**Rekordbox and renaming.** Rekordbox stores the exact path of every file.
-Rename or move a track after importing it and the link breaks — you lose cue
-points and beatgrids. Sort your files *before* importing them.
-
 **Private and region-locked tracks** are skipped with a warning rather than
 aborting the whole playlist.
 
+**Renaming files later.** Media players and libraries that index your files
+store their exact paths. Renaming or moving a track after it has been indexed
+can break that link, so it's worth settling on a folder layout before
+importing anywhere.
+
 **Only download what you're entitled to.** Respect the terms of service of the
-platforms and the rights of the artists.
+platforms and the rights of the creators.
 
 ---
 

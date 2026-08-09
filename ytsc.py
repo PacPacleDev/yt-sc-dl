@@ -78,13 +78,13 @@ def run_cli(args):
 def main():
     p = argparse.ArgumentParser(
         prog="ytsc",
-        description="Télécharge des playlists YouTube et SoundCloud en audio, "
-                    "prêtes pour Rekordbox. Sans argument, ouvre l'interface.",
+        description="Télécharge des playlists YouTube et SoundCloud en fichiers "
+                    "audio. Sans argument, ouvre l'interface.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""exemples :
   python3 ytsc.py                                  interface graphique
   python3 ytsc.py https://youtube.com/playlist?list=…
-  python3 ytsc.py <url> -o ~/Music/DJ -f aiff
+  python3 ytsc.py <url> -o ~/Music -f aiff
   python3 ytsc.py --saved                          playlists mémorisées
 """)
     p.add_argument("url", nargs="?", help="URL YouTube ou SoundCloud")
